@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
       <CardContent
         sx={{ height: 130, textAlign: 'center', bgcolor: 'bgColor.light' }}
       >
-        <Typography component={'span'} sx={{ color: 'grayColor.main' }}>
+        <Typography sx={{ color: 'grayColor.main' }}>
           {product.category.name}
         </Typography>
         <Typography sx={{ color: 'secondary.dark', fontSize: '18px' }}>
@@ -22,7 +22,7 @@ const ProductCard = ({ product }) => {
         <Typography
           sx={{ color: 'secondary.dark', fontSize: '16px', fontWeight: 'bold' }}
         >
-          {product.price}$
+          £{product.price}
         </Typography>
       </CardContent>
     </Card>

@@ -8,14 +8,13 @@ import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Container from '@mui/material/Container'
 import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import Logo from '../Global/Logo'
 import { Link, Stack } from '@mui/material'
 import Cart from '../Cart'
 import { NavLink } from 'react-router-dom'
-const pages = ['Home', 'Products', 'About']
+const pages = ['Home', 'Shop', 'About']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 function Navbar () {

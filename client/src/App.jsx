@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Products from './pages/Products'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import Navbar from './components/Home/Navbar'
+import Shop from './pages/Shop'
 
 const theme = createTheme({
   palette: {
@@ -34,7 +34,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/products' element={<Products />} />
+          <Route path='/shop' element={<Shop />} />
         </Routes>
       </Router>
     </ThemeProvider>
