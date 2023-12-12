@@ -1,29 +1,37 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Header from './components/Home/Header'
 import Products from './pages/Products'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
+import Navbar from './components/Home/Navbar'
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#5f4ecb'
+      main: '#6a9739',
+      light: '#8bc34a'
     },
     secondary: {
-      main: '#4d3bc6'
+      main: '#001524',
+      dark: '#101218',
+      light: '#150e1f'
     },
-    darkColor: {
-      dark: '#25272d',
-      main: '#565a61',
-      light: '#f2f5f7'
+    bgColor: {
+      main: '#fff',
+      light: '#f8f6f3'
+    },
+    grayColor: {
+      main: '#333333'
     }
+  },
+  typography: {
+    fontFamily: "'Merriweather', serif"
   }
 })
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Header />
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />

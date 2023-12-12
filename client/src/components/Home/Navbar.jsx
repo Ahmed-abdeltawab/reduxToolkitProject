@@ -12,8 +12,9 @@ import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
 import Logo from '../Global/Logo'
-import { Stack } from '@mui/material'
+import { Link, Stack } from '@mui/material'
 import Cart from '../Cart'
+import { NavLink } from 'react-router-dom'
 const pages = ['Home', 'Products', 'About']
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
@@ -94,13 +95,15 @@ function Navbar () {
 
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             {pages.map(page => (
-              <Button
+              <Link
+                component={NavLink}
+                to={`/${page.toLowerCase()}`}
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
-              </Button>
+              </Link>
             ))}
           </Box>
 
