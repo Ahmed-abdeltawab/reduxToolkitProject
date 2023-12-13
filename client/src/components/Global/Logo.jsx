@@ -1,11 +1,15 @@
-import logo from '../../assets/Medicine.png'
+import { Box } from '@mui/material'
+import logo from '../../assets/images/organic-store-logo5.svg'
+import { Link } from 'react-router-dom'
 const Logo = ({ sx }) => {
   return (
-    <img
-      src={logo}
-      alt='logo'
-      style={{ width: '90px', height: '30px', ...sx }}
-    />
+    <Box component={Link} to={'/'} sx={{ width: '150px', height: '70px' }}>
+      <img
+        src={logo}
+        alt='logo'
+        style={{ width: '100%', height: '100%', ...sx }}
+      />
+    </Box>
   )
 }
 

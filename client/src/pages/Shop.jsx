@@ -1,14 +1,18 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../store/productSlice'
-import { Box, Divider, Stack } from '@mui/material'
+import { Box, Divider, Stack, Typography } from '@mui/material'
 import Products from '../components/Products'
 import ShopSidebar from '../components/ShopSidebar'
 
 const Shop = () => {
-  const { data } = useSelector(state => state.product)
+  const products = useSelector(state => state.product.data)
+  const searchQuery = useSelector(state => state.product.searchQuery)
   const dispatch = useDispatch()
-  console.log(`🚀 ~ file: Products.jsx ~ line 113 ~ Products ~ data`, data)
+  const data = products.filter(pro =>
+    pro.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   useEffect(() => {
     dispatch(getProducts())
   }, [dispatch])
@@ -24,7 +28,13 @@ const Shop = () => {
           <ShopSidebar />
         </Box>
         <Box flex={3}>
-          <Products data={data} />
+          {data.length > 0 ? (
+            <Products data={data} />
+          ) : (
+            <Typography sx={{ textAlign: 'center' }}>
+              There is no exists products
+            </Typography>
+          )}
         </Box>
       </Stack>
     </Box>

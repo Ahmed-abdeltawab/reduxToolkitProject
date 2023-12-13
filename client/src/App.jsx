@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import Navbar from './components/Home/Navbar'
 import Shop from './pages/Shop'
+import { Box } from '@mui/material'
 
 const theme = createTheme({
   palette: {
@@ -24,7 +25,13 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: "'Merriweather', serif"
+    fontFamily: "'Merriweather', serif", // Main text font
+    h1: {
+      fontFamily: "'Merriweather Sans', sans-serif" // Heading 1 font
+    },
+    h2: {
+      fontFamily: "'Merriweather Sans', sans-serif" // Heading 2 font
+    }
   }
 })
 const App = () => {
@@ -32,10 +39,12 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <Navbar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/shop' element={<Shop />} />
-        </Routes>
+        <Box bgcolor={'bgColor.light'}>
+          <Routes>
+            <Route path='/home' element={<Home />} />
+            <Route path='/shop' element={<Shop />} />
+          </Routes>
+        </Box>
       </Router>
     </ThemeProvider>
   )

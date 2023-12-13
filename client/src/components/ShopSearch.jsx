@@ -1,9 +1,19 @@
 import { Box, IconButton, Stack, TextField } from '@mui/material'
 import { IoIosArrowForward } from 'react-icons/io'
+import { useDispatch } from 'react-redux'
+import { setSearchQuery } from '../store/productSlice'
+
 const ShopSearch = () => {
+  // const [value, setValue] = useState()
+
+  const handleSubmit = e => {
+    e.preventDefault()
+  }
+  const dispatch = useDispatch()
   return (
     <Box
       component='form'
+      onSubmit={handleSubmit}
       sx={{
         '& > :not(style)': { m: 1, width: '25ch' }
       }}
@@ -13,6 +23,9 @@ const ShopSearch = () => {
       <Stack direction='row' spacing={1}>
         <TextField
           id='search'
+          onChange={e => {
+            dispatch(setSearchQuery(e.target.value))
+          }}
           sx={{
             bgcolor: 'bgColor.main',
             py: 0,

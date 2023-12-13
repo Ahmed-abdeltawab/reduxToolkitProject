@@ -8,7 +8,7 @@ export const getProducts = createAsyncThunk(
     try {
       const response = await fetch(`${baseUrl}/products`)
       const data = await response.json()
-      console.log('🛩️ products data :', data)
+
       return data
     } catch (error) {
       return rejectWithValue(error)
@@ -18,8 +18,12 @@ export const getProducts = createAsyncThunk(
 
 const productSlice = createSlice({
   name: 'product',
-  initialState: { data: [], loading: false },
-  reducers: {},
+  initialState: { data: [], loading: false, searchQuery: '' },
+  reducers: {
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload
+    }
+  },
   extraReducers: builder => {
     // get Products
     builder.addCase(getProducts.fulfilled, (state, { payload }) => {
@@ -34,4 +38,5 @@ const productSlice = createSlice({
     })
   }
 })
+export const { setSearchQuery } = productSlice.actions
 export default productSlice.reducer
